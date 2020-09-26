@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
 
-import { getErrorProps, nanToString } from './helpers';
+import { getErrorProps, nanToString, SelectOption } from './helpers';
 
 export type BaseTextFieldProps = {
   errorMessage?: string;
@@ -10,7 +10,11 @@ export type BaseTextFieldProps = {
 
 export function BaseTextField({ errorMessage, ...props }: BaseTextFieldProps) {
   return (
-    <TextField variant="outlined" {...getErrorProps(errorMessage)} {...props} />
+    <TextField
+      variant="outlined"
+      {...getErrorProps(errorMessage)}
+      {...props}
+    ></TextField>
   );
 }
 
@@ -31,4 +35,24 @@ export function BaseNumericTextField({
 
 export function BaseRequiredNumericTextField(props: BaseNumericTextFieldProps) {
   return <BaseNumericTextField required {...props} />;
+}
+
+export type BaseSelectTextFieldProps = {
+  options: SelectOption[];
+} & BaseTextFieldProps;
+
+export function BaseSelectTextField({
+  errorMessage,
+  options,
+  ...props
+}: BaseSelectTextFieldProps) {
+  return (
+    <BaseTextField select {...getErrorProps(errorMessage)} {...props}>
+      {options.map((opt) => (
+        <option key={opt.value} value={opt.value}>
+          {opt.label}
+        </option>
+      ))}
+    </BaseTextField>
+  );
 }

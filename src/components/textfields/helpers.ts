@@ -1,8 +1,14 @@
+import { ReactNode } from 'react';
 import { isNil } from 'lodash';
 
 export type ErrorProps = {
   error: boolean;
   helperText: string;
+};
+
+export type SelectOption = {
+  value: string | number;
+  label: string | number | ReactNode;
 };
 
 export function getErrorProps(errorMessage?: string): ErrorProps {
@@ -18,4 +24,10 @@ export function getErrorProps(errorMessage?: string): ErrorProps {
   return errorProps;
 }
 
-export const nanToString = (value: number) => (isNaN(value) ? '' : String(value));
+export function nanToString(value: number) {
+  return isNaN(value) ? '' : String(value);
+}
+
+export function selectOne(options: SelectOption[]) {
+  return [{ value: -1, label: 'Select One...' }, ...options];
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { TableRow, TableCell } from '@material-ui/core';
 
 import { Car } from '../models/Car';
 import { useForm } from '../hooks/useForm';
@@ -37,39 +38,39 @@ export function CarEditRow({
   };
 
   return (
-    <tr>
-      <td>{car.id}</td>
-      <td>
+    <TableRow>
+      <TableCell>{car.id}</TableCell>
+      <TableCell>
         <CarMakeField value={carForm.make} onChange={change} {...extraProps} />
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <CarModelField
           {...extraProps}
           value={carForm.model}
           onChange={change}
         />
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <CarYearField value={carForm.year} onChange={change} {...extraProps} />
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <CarColorField
           value={carForm.color}
           onChange={change}
           {...extraProps}
         />
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <CarPriceField
           value={carForm.price}
           onChange={change}
           {...extraProps}
         />
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <CarSaveButton onClick={saveCar} />
         <CarCancelButton onClick={cancelCar} />
-      </td>
-    </tr>
+      </TableCell>
+    </TableRow>
   );
 }

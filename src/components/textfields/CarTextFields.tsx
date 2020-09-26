@@ -15,7 +15,3 @@ export function CarMakeField(props: CarTextFieldProps) {
 export function CarModelField(props: CarTextFieldProps) {
   return <BaseRequiredTextField label="Model" name="model" {...props} />;
 }
-
-export function CarColorField(props: CarTextFieldProps) {
-  return <BaseRequiredTextField label="Color" name="color" {...props} />;
-}
