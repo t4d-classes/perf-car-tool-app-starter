@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ThemeProvider } from '@material-ui/core';
 
+import { carToolTheme } from './carToolTheme';
 import { Car } from './models/Car';
 
 import { CarToolStoreProvider } from './contexts/CarToolStoreContext';
@@ -15,7 +17,9 @@ const initialCars: Car[] = [
 
 ReactDOM.render(
   <CarToolStoreProvider initialCars={initialCars}>
+    <ThemeProvider theme={carToolTheme}>
     <CarToolContainer />
+    </ThemeProvider>
   </CarToolStoreProvider>,
   document.querySelector('#root'),
 );

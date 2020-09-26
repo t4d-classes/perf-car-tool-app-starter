@@ -12,6 +12,7 @@ export function BaseTextField({ errorMessage, ...props }: BaseTextFieldProps) {
   return (
     <TextField
       variant="outlined"
+      size="small"
       {...getErrorProps(errorMessage)}
       {...props}
     ></TextField>

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Grid, Container } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import { ToolHeader } from './ToolHeader';
 import { ToolFooter } from './ToolFooter';
@@ -17,12 +17,12 @@ export function CarToolLayout({ children }: CarToolLayoutProps) {
   }
 
   return (
-    <Container>
-      <Grid>
-        <Grid item component={CarToolHeader} />
-        <Grid item>{children}</Grid>
-        <Grid item component={CarToolFooter} />
+    <Grid container direction="column">
+      <Grid item component={CarToolHeader} />
+      <Grid item component="main">
+        {children}
       </Grid>
-    </Container>
+      <Grid item component={CarToolFooter} />
+    </Grid>
   );
 }

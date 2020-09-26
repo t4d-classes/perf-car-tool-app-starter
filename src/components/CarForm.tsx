@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 import { CarFormData } from '../models/CarFormData';
 import { useForm } from '../hooks/useForm';
@@ -26,13 +26,7 @@ export function CarForm({
 }: CarFormProps) {
   const classes = useStyles();
 
-  const [carForm, change, resetCarForm] = useForm<CarFormData>({
-    make: '',
-    model: '',
-    year: NaN,
-    color: '',
-    price: NaN,
-  });
+  const [carForm, change, resetCarForm] = useForm(new CarFormData());
 
   const submitCar = () => {
     onSubmitCar({ ...carForm });
@@ -42,25 +36,45 @@ export function CarForm({
   return (
     <Box>
       <header>
-        <h2>{headerText}</h2>
+        <Typography variant="h2">{headerText}</Typography>
       </header>
-      <form noValidate autoComplete="off">
-        <div className={classes.formControlRow}>
-          <CarMakeField value={carForm.make} onChange={change} />
+      <form noValidate autoComplete="off" className={classes.form}>
+        <div className={classes.formRow}>
+          <CarMakeField
+            value={carForm.make}
+            onChange={change}
+            className={classes.formControl}
+          />
         </div>
-        <div className={classes.formControlRow}>
-          <CarModelField value={carForm.model} onChange={change} />
+        <div className={classes.formRow}>
+          <CarModelField
+            value={carForm.model}
+            onChange={change}
+            className={classes.formControl}
+          />
         </div>
-        <div className={classes.formControlRow}>
-          <CarYearField value={carForm.year} onChange={change} />
+        <div className={classes.formRow}>
+          <CarYearField
+            value={carForm.year}
+            onChange={change}
+            className={classes.formControl}
+          />
         </div>
-        <div className={classes.formControlRow}>
-          <CarColorField value={carForm.color} onChange={change} />
+        <div className={classes.formRow}>
+          <CarColorField
+            value={carForm.color}
+            onChange={change}
+            className={classes.formControl}
+          />
         </div>
-        <div className={classes.formControlRow}>
-          <CarPriceField value={carForm.price} onChange={change} />
+        <div className={classes.formRow}>
+          <CarPriceField
+            value={carForm.price}
+            onChange={change}
+            className={classes.formControl}
+          />
         </div>
-        <div className={classes.formControlRow}>
+        <div className={classes.formRow}>
           <SubmitButton onClick={submitCar} />
         </div>
       </form>

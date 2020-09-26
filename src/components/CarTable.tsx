@@ -6,6 +6,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Typography
 } from '@material-ui/core';
 
 import { Car, CarKeys } from '../models/Car';
@@ -50,7 +51,7 @@ export function CarTable({
   return (
     <TableContainer>
       <header>
-        <h2>Car Table</h2>
+        <Typography variant="h2">Car Table</Typography>
       </header>
       <Table>
         <TableHead>
