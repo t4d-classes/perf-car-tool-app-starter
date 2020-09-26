@@ -1,63 +1,75 @@
-import React, { useState, ChangeEvent } from 'react';
+import React from 'react';
 
 import { Car } from '../models/Car';
-
-type CarFormData = {
-  make: string;
-  model: string;
-  year: number;
-  color: string;
-  price: number;
-}
+import { useForm } from '../hooks/useForm';
+import {
+  CarMakeField,
+  CarModelField,
+  CarYearField,
+  CarColorField,
+  CarPriceField,
+} from './textfields';
+import { CarSaveButton, CarCancelButton } from './buttons';
+import { toCarFormData } from '../models/CarFormData';
 
 export type CarEditRowProps = {
-  car: Car,
-  onSaveCar: (car: Car) => void,
-  onCancelCar: () => void,
+  car: Car;
+  onSaveCar: (car: Car) => void;
+  onCancelCar: () => void;
 };
 
-export function CarEditRow(props: CarEditRowProps) {
-
-  const [ carForm, setCarForm ] = useState<CarFormData>({
-    make: props.car.make,
-    model: props.car.model,
-    year: props.car.year,
-    color: props.car.color,
-    price: props.car.price,
-  });
-
-  const change = (e: ChangeEvent<HTMLInputElement>) => {
-
-    setCarForm({
-      ...carForm,
-      [ e.target.name ]: e.target.value,
-    });
-
-  };
+export function CarEditRow({
+  car,
+  onSaveCar,
+  onCancelCar: cancelCar,
+}: CarEditRowProps) {
+  const [carForm, change] = useForm(toCarFormData(car));
 
   const saveCar = () => {
-    props.onSaveCar({
+    onSaveCar({
       ...carForm,
-      id: props.car.id,
+      id: car.id,
     });
-  }
+  };
+
+  const extraProps = {
+    label: 'Required',
+  };
 
   return (
     <tr>
-      <td>{props.car.id}</td>
-      <td><input type="text" name="make" value={carForm.make} onChange={change} /></td>
-      <td><input type="text" name="model" value={carForm.model} onChange={change} /></td>
-      <td><input type="number" name="year" value={carForm.year} onChange={change} /></td>
-      <td><input type="text" name="color" value={carForm.color} onChange={change} /></td>
-      <td><input type="number" name="price" value={carForm.price} onChange={change} /></td>
+      <td>{car.id}</td>
       <td>
-        <button type="button"
-          onClick={saveCar}>Save</button>
-        <button type="button"
-          onClick={props.onCancelCar}>Cancel</button>
+        <CarMakeField value={carForm.make} onChange={change} {...extraProps} />
+      </td>
+      <td>
+        <CarModelField
+          {...extraProps}
+          value={carForm.model}
+          onChange={change}
+        />
+      </td>
+      <td>
+        <CarYearField value={carForm.year} onChange={change} {...extraProps} />
+      </td>
+      <td>
+        <CarColorField
+          value={carForm.color}
+          onChange={change}
+          {...extraProps}
+        />
+      </td>
+      <td>
+        <CarPriceField
+          value={carForm.price}
+          onChange={change}
+          {...extraProps}
+        />
+      </td>
+      <td>
+        <CarSaveButton onClick={saveCar} />
+        <CarCancelButton onClick={cancelCar} />
       </td>
     </tr>
   );
-
 }
-

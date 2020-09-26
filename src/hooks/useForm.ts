@@ -1,27 +1,22 @@
-import { useState, ChangeEvent } from 'react';
+import { useState } from 'react';
 
-type HTMLFormControls =
-  HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+import { FormControlChangeEvent, FormControlChange } from '../models/FormControls';
 
-type UseForm = <FormDataType>(initialForm: FormDataType) =>
-  ([ FormDataType, (e: ChangeEvent<HTMLFormControls>) => void, () => void ]);
+type UseForm = <FormDataType>(
+  initialForm: FormDataType,
+) => [FormDataType, FormControlChange, () => void];
 
 export const useForm: UseForm = (initialForm) => {
+  const [form, setForm] = useState({ ...initialForm });
 
-  const [ form, setForm ] = useState({ ...initialForm });
-
-  const change = (e: ChangeEvent<HTMLFormControls>) => {
-
+  const change = (e: FormControlChangeEvent) => {
     setForm({
       ...form,
-      [ e.target.name ]: e.target.type === 'number'
-        ? Number(e.target.value) : e.target.value,
+      [e.target.name]: e.target.type === 'number' ? Number(e.target.value) : e.target.value,
     });
-
   };
 
   const resetForm = () => setForm({ ...initialForm });
 
-  return [ form, change, resetForm ];
-
+  return [form, change, resetForm];
 };

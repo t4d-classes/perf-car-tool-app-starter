@@ -1,19 +1,13 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 export type ToolHeaderProps = {
-  headerText: string,
+  headerText: string;
 };
 
-export function ToolHeader(props: ToolHeaderProps) {
-
+export function ToolHeader({ headerText }: ToolHeaderProps) {
   return (
     <header>
-      <h1>{props.headerText}</h1>
+      <h1>{headerText}</h1>
     </header>
   );
-
 }
-
-export const ToolHeaderMemo = memo(ToolHeader);
-
-ToolHeaderMemo.displayName = 'ToolHeaderMemo';

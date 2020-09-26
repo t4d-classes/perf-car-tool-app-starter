@@ -1,15 +1,15 @@
 import React from 'react';
 
 export type ToolFooterProps = {
-  companyName: string,
+  companyName: string;
 };
 
-export function ToolFooter(props: ToolFooterProps) {
-
-  return(
+export function ToolFooter({ companyName }: ToolFooterProps) {
+  return (
     <footer>
-      <small>&copy; {new Date().getFullYear()} {props.companyName}</small>
+      <small>
+        &copy; {new Date().getFullYear()} {companyName}
+      </small>
     </footer>
   );
-
 }
