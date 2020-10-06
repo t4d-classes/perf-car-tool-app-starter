@@ -18,9 +18,7 @@ UI.panels.timeline._millisecondsToRecordAfterLoadEvent = 15000;
 
 ### Lab 1
 
-1. Find Edit Car function call
-
-Explore modifying the edit car function to be an arrow function, a keyword-style function and the use of performance marks to help (or not help) in finding the function's invocation. In the browser's Performance tool, search for all using the Event Log. Remember, there are two ways to search the event log, you can use both the "filter" and "ctrl-f". One advantage to the "ctrl-f" is it highlights the function call in the performancee tool graph.
+1. Find Edit Car function call. Explore modifying the edit car function to be an arrow function, a keyword-style function and the use of performance marks to help (or not help) in finding the function's invocation. In the browser's Performance tool, search for all using the Event Log. Remember, there are two ways to search the event log, you can use both the "filter" and "ctrl-f". One advantage to the "ctrl-f" is it highlights the function call in the performancee tool graph.
 
 1. In the browser's Performance tool, under the Timings tab, review the amount of rendering which occurs for the Edit Car. Compare to the timings for the simpler Car Tool. What happened when using a library such as Material UI?
 
