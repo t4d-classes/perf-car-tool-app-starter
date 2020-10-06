@@ -20,9 +20,9 @@ UI.panels.timeline._millisecondsToRecordAfterLoadEvent = 15000;
 
 1. Find Edit Car function call
 
-Explore arrow function, keyword-style function. Performance marks. Search for all using the Event Log,
+Explore modifying the edit car function to be an arrow function, a keyword-style function and the use of performance marks to help (or not help) in finding the function's invocation. In the browser's Performance tool, search for all using the Event Log. Remember, there are two ways to search the event log, you can use both the "filter" and "ctrl-f". One advantage to the "ctrl-f" is it highlights the function call in the performancee tool graph.
 
-1. Under the Timings tab, review the amount of rendering which occurs for the Edit Car. Compare to the timings for the simpler Car Tool. What happened when using a library such as Material UI?
+1. In the browser's Performance tool, under the Timings tab, review the amount of rendering which occurs for the Edit Car. Compare to the timings for the simpler Car Tool. What happened when using a library such as Material UI?
 
 1. Use the React Profiler to capture the edit car. Review the flamegraph. Were a lot of components re-rendered? How long did it take? Write down the time or take screenshot, you will need it later. Compare to the non-Material UI version.
 
