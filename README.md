@@ -30,7 +30,7 @@ UI.panels.timeline._millisecondsToRecordAfterLoadEvent = 15000;
 
 ### Lab 2
 
-The following optimizations should be performed when displaying a car edit row in the car table.
+1. The following optimizations should be performed when displaying a car edit row in the car table.
 
 1. Optimize the Car Form. Car Form should only re-render if the "buttonText" or the "onSubmitCar" props change.
 
@@ -42,7 +42,7 @@ The following optimizations should be performed when displaying a car edit row i
 
 ### Lab 3
 
-1. How often does the array of cars re-sort? Can this be optimized? Do not optimize yet.
+1. How often does the array of cars re-sort? Can this be optimized? Do not optimize it yet.
 
 1. Start profiler. Click Delete, then cancel (do not delete car). When the modal dialog displayed what re-rendered? What should not have been re-rendered? Should the Car Table re-render? Why did it re-render?
 
