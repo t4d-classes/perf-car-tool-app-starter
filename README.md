@@ -20,7 +20,7 @@ UI.panels.timeline._millisecondsToRecordAfterLoadEvent = 15000;
 
 1. Find Edit Car function call. Explore modifying the edit car function to be an arrow function, a keyword-style function and the use of performance marks to help (or not help) in finding the function's invocation. In the browser's Performance tool, search for all using the Event Log. Remember, there are two ways to search the event log, you can use both the "filter" and "ctrl-f". One advantage to the "ctrl-f" is it highlights the function call in the performancee tool graph.
 
-1. In the browser's Performance tool, under the Timings tab, review the amount of rendering which occurs for the Edit Car. Compare to the timings for the simpler Car Tool. What happened when using a library such as Material UI?
+1. In the browser's Performance tool, under the Timings section, review the amount of rendering which occurs for the Edit Car. Compare to the timings for the simpler Car Tool. What happened when using a library such as Material UI?
 
 1. Use the React Profiler to capture the edit car. Review the flamegraph. Were a lot of components re-rendered? How long did it take? Write down the time or take screenshot, you will need it later. Compare to the non-Material UI version.
 
@@ -46,8 +46,6 @@ UI.panels.timeline._millisecondsToRecordAfterLoadEvent = 15000;
 
 1. Start profiler. Click Delete, then cancel (do not delete car). When the modal dialog displayed what re-rendered? What should not have been re-rendered? Should the Car Table re-render? Why did it re-render?
 
-Optimize the function props.
-
 1. Optimize the necessary props (functions and data) to prevent re-rendering of the Car Table when displaying the modal and canceling the sort.
 
-1. Use the experience section of th performance tool, find the layout shift which occurs when editing a row. How can this be fixed? Fix it.
+1. In the browser's Performance tool, under the Experience section, find the layout shift which occurs when editing a row. How can this be fixed? Fix it.
